@@ -1,1 +1,1 @@
-**These segments of code are example of how you can implement Supper Secure information transpher methods stupidly easy**
+**These segments of code are an example of how you can implement super secure information transfer methods stupidly easily.**
