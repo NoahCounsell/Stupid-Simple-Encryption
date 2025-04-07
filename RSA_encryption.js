@@ -1,31 +1,22 @@
-const p = 89n;
-const q = 97n;
+const privateP = 89n;
+const privateQ = 97n;
+const publicN = privateP * privateQ;
+const publicE = 65537n;
 
-const n = p * q;
-const phi = (p - 1n) * (q - 1n);
+const privatePhi = (privateP - 1n) * (privateQ - 1n);
 
-function generateCoprime(phi){
-    coprime = 10;
-    for(i = 2; i > phi; i++){
-        
-        coprime++
-    }
+// send messge
+const privateM = 14n;
+const publicC = privateM ** publicE % publicN;
+
+
+// decrypt message
+let privateD = 0n;
+
+while ((privateD * publicE) % privatePhi !== 1n) {
+    privateD++;
 }
 
-const e = 65537n; // e is coprime to phi
+const decrypted = publicC ** privateD % publicN;
 
-// Encrypting message
-const m = 50n;
-const c = m ** e % n;
-
-// Finding private key d such that (d * e) % phi == 1
-let d = 0n;
-while ((d * e) % phi !== 1n) {
-    d++;
-}
-
-// Decrypting message
-const decrypted = c ** d % n;
-
-console.log("Encrypted:", c.toString());
-console.log("Decrypted:", decrypted.toString());
+console.log("Message:", decrypted.toString());
