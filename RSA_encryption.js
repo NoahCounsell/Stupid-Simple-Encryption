@@ -1,6 +1,9 @@
 const privateP = 89n;
 const privateQ = 97n;
+
 const publicN = privateP * privateQ;
+
+// coprime
 const publicE = 65537n;
 
 const privatePhi = (privateP - 1n) * (privateQ - 1n);
